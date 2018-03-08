@@ -41,28 +41,29 @@ it('should retun names in a room', () => {
 
 
 it('should remove a user', () => {
-  //var userList = users.getUserList('Node Course');
+  var user = users.removeUser('1');
 
-//  expect(userList).toEqual(['Mike', 'Aboo']);
+  expect(user.id).toEqual('1');
+  expect(users.users.length).toBe(2);
 });
 
 it('should not remove user', () => {
-  //var userList = users.getUserList('Node Course');
+  var user = users.removeUser('0');
 
-//  expect(userList).toEqual(['Mike', 'Aboo']);
+  expect(user).toBeUndefined();
+  expect(users.users.length).toBe(3);
 });
 
 
 it('should find user', () => {
   var Finduser = users.getUser('1');
-
   expect(Finduser.id).toEqual('1');
 });
 
 it('should not find user', () => {
   var Finduser = users.getUser('0');
 
-  expect(Finduser.id).toBeUndefined();
+  expect(Finduser).toBeUndefined();
 });
 
 });
